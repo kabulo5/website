@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>K-BOUTIQUE</title>
+    <style>
+             body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #7bd1f1;
+            color: white;
+            padding: 10px 20px;
+        }
+        header img {
+            height: 95px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .search-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+        }
+        .search-container button {
+            padding: 10px 15px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+        }
+        .product img {
+            width: 100%;
+        }
+        .cart-count {
+            position: relative;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+        }
+        .advertisement {
+            text-align: center;
+            margin: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .advertisement {
+            text-align: center;
+            margin: 20px 0;
+       
+        }
+        .category-menu {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .category-menu button {
+            margin: 0 10px;
+            padding: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #d1e938;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Logo "><h1>K-BOUTIQUE</h1>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="nos contact.html">nos contact</a>
+        <a href="identifiez-vous.html" class="fa-solid fa-user"></a></li>
+        <a href="#cart" class="cart">🛒 <span class="cart-count" id="cart-count">0</a></span> 
+                            </span>
+    <span class="wd-tools-text">
+
+
+            </span>
+    </a></a>
+    </nav>
+</header>
+
+<div class="advertisement" id="advertisement">DEV</div>
+</div>
+
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Rechercher des articles...">
+    <button onclick="searchItem()">Rechercher</button>
+</div>
+
+<div class="category-menu">
+    <button onclick="filterCategory('vêtements')">Vêtements</button>
+    <button onclick="filterCategory('informatique')">Informatique</button>
+    <button onclick="filterCategory('électronique')">Électronique</button>
+    <button onclick="filterCategory('Véhicule')">Véhicule</button>
+    <button onclick="filterCategory('autres')">Autres</button>
+</div>
+
+<div class="products" id="product-list">
+    <!-- Produits existants -->
+    <div class="product" data-category="vêtements">
+        <img src="beli-gul-detayli-drapeli-saten-abiye--be-9fe4.jpg" alt="Produit 1">
+        <h3>Robe</h3>
+        <p>Prix 80$.</p>
+        <button onclick="buyItem('Robe', 80)">Acheter</button>
+        <button onclick="addToCart('Robe', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="71Z0w0OnxFL._AC_UY1000_.jpg" alt="Produit 2">
+        <h3>Pantalon cargo femme</h3>
+        <p>Prix 40$.</p>
+        <button onclick="buyItem('Pantalon cargo femme', 40)">Acheter</button>
+        <button onclick="addToCart('Pantalon cargo femme', 40)">Ajouter au panier</button>
+    </div>
+
+    <!-- Nouveaux produits ajoutés -->
+    <div class="product" data-category="vêtements">
+        <img src="lizza-green.jpg" alt="Produit 6">
+        <h3>Robe</h3>
+        <p>Prix 80$.</p>
+        <button onclick="buyItem('Robe', 80)">Acheter</button>
+        <button onclick="addToCart('Robe', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="PBM.jpg" alt="Produit 7">
+        <h3>Vareuse</h3>
+        <p>Prix 10$.</p>
+        <button onclick="buyItem('Vareuse', 10)">Acheter</button>
+        <button onclick="addToCart('Vareuse', 10)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="leopards_rdc_fareuse.jpeg" alt="Produit 8">
+        <h3>Vareuse Léopard RDC</h3>
+        <p>Prix 10$.</p>
+        <button onclick="buyItem('Vareuse Léopard RDC', 10)">Acheter</button>
+        <button onclick="addToCart('Vareuse Léopard RDC', 10)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="fre_pl_Pantalon-Homme.jpg" alt="Produit 9">
+        <h3>Pantalon Cargo Homme</h3>
+        <p>Prix 45$.</p>
+        <button onclick="buyItem('Pantalon Cargo Homme', 45)">Acheter</button>
+        <button onclick="addToCart('Pantalon Cargo Homme', 45)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="autres">
+        <img src="chaussure-style-americain.jpg" alt="Produit 10">
+        <h3>Chaussure Style Américain</h3>
+        <p>Prix 25$.</p>
+        <button onclick="buyItem('Chaussure Style Américain', 25)">Acheter</button>
+        <button onclick="addToCart('Chaussure Style Américain', 25)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="cargo.jpg" alt="Produit 11">
+        <h3>Pantalon Cargo Fille</h3>
+        <p>Prix 45$.</p>
+        <button onclick="buyItem('Pantalon Cargo Fille', 45)">Acheter</button>
+        <button onclick="addToCart('Pantalon Cargo Fille', 45)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="arduino.jpg" alt="Produit 12">
+        <h3>Kit Complet Arduino uno</h3>
+        <p>Prix 100$.</p>
+        <button onclick="buyItem('Kit Complet Arduino', 100)">Acheter</button>
+        <button onclick="addToCart('Kit Complet Arduino', 100)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="rezvani-vengeance-2998352.jpg" alt="Produit 6">
+        <h3>voitur rezvani-vengeance</h3>
+        <p>Prix 40000$.</p>
+        <button onclick="buyItem('voitur rezvani-vengeance', 80)">Acheter</button>
+        <button onclick="addToCart('voitur rezvani-vengeance', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="2019-apache-rr-310-clipper-clutch-1_720x540.jpg" alt="Produit 6">
+        <h3>moto</h3>
+        <p>Prix 5000$.</p>
+        <button onclick="buyItem('moto', 80)">Acheter</button>
+        <button onclick="addToCart('moto', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="IMG-20241021-WA0008.jpg" alt="Produit 6">
+        <h3>Ordinateur hp</h3>
+        <p>Prix 500$.</p>
+        <button onclick="buyItem('Ordinateur hp', 80)">Acheter</button>
+        <button onclick="addToCart('Ordinateur hp', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="Heaac4e10919a46fca331c6fb0bd0cea4r.jpg_300x300.jpg" alt="Produit 6">
+        <h3>Imprimmate</h3>
+        <p>Prix 200$.</p>
+        <button onclick="buyItem('Imprimmate', 80)">Acheter</button>
+        <button onclick="addToCart('Imprimmate', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="massicot-carte-visite-electrique-a-4-reglable-kango-a4.jpg" alt="Produit 6">
+        <h3>Imprimmate</h3>
+        <p>Prix 200$.</p>
+        <button onclick="buyItem('Imprimmate', 80)">Acheter</button>
+        <button onclick="addToCart('Imprimmate', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="IMG-20250219-WA0004.jpg" alt="Produit 6">
+        <h3>Ordinateur dell</h3>
+        <p>Prix 150$.</p>
+        <button onclick="buyItem('Ordinateur dell', 80)">Acheter</button>
+        <button onclick="addToCart('Ordinateur dell', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="IMG-20250217-WA0015.jpg" alt="Produit 6">
+        <h3>Ordinateur hp</h3>
+        <p>Prix 270$.</p>
+        <button onclick="buyItem('Ordinateur hp', 80)">Acheter</button>
+        <button onclick="addToCart('Ordinateur hp', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="IMG-20241029-WA0001.jpg" alt="Produit 6">
+        <h3>Ordinateur dell</h3>
+        <p>Prix 100$.</p>
+        <button onclick="buyItem('Ordinateur dell', 80)">Acheter</button>
+        <button onclick="addToCart('Ordinateur dell', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="IMG-20241018-WA0014.jpg" alt="Produit 6">
+        <h3>Ordinateur hp</h3>
+        <p>Prix 125$.</p>
+        <button onclick="buyItem('Ordinateur hp', 80)">Acheter</button>
+        <button onclick="addToCart('Ordinateur hp', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="18975325-appareil-electrique-amperemetre-un-multimetre-pour-mesurer-la-batterie.jpg" alt="Produit 6">
+        <h3>Appareille de mesure</h3>
+        <p>Prix 50$.</p>
+        <button onclick="buyItem('Appareille de mesure', 80)">Acheter</button>
+        <button onclick="addToCart('Appareille de mesure', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="Module-reconnaissance-vocale-pour-Arduino-Compatible-Test-et-Avis.jpg" alt="Produit 6">
+        <h3>Module de reconnaissance vocale</h3>
+        <p>Prix 2$.</p>
+        <button onclick="buyItem('Module de reconnaissance vocale', 80)">Acheter</button>
+        <button onclick="addToCart('Module de reconnaissance vocale', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="1.jpg" alt="Produit 6">
+        <h3>Chemise</h3>
+        <p>Prix 15$.</p>
+        <button onclick="buyItem('1.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('1.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="2x-carte-reseau-sans-fil-150mbps-4g-modem-usb-mode.jpg" alt="Produit 6">
+        <h3>Modem standar carte-reseau-sans-fil-150mbps-4g-modem-usb-mode </h3>
+        <p>Prix 80$.</p>
+        <button onclick="buyItem('2x-carte-reseau-sans-fil-150mbps-4g-modem-usb-mode.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('2x-carte-reseau-sans-fil-150mbps-4g-modem-usb-mode.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="3.jpg" alt="Produit 6">
+        <h3>Chemise</h3>
+        <p>Prix 10$.</p>
+        <button onclick="buyItem('3.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('3.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="3e6014e3899345e28986fa4f2db33bee.jpg" alt="Produit 6">
+        <h3>Robe</h3>
+        <p>Prix 30$.</p>
+        <button onclick="buyItem('3e6014e3899345e28986fa4f2db33bee.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('3e6014e3899345e28986fa4f2db33bee.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="4.jpg" alt="Produit 6">
+        <h3>Chemise</h3>
+        <p>Prix 20$.</p>
+        <button onclick="buyItem('4.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('4.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="5abb426eaa334a6aa9e40f3619373430.jpg" alt="Produit 6">
+        <h3>Robe</h3>
+        <p>Prix 30$.</p>
+        <button onclick="buyItem('5abb426eaa334a6aa9e40f3619373430.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('5abb426eaa334a6aa9e40f3619373430.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="6.jpg" alt="Produit 6">
+        <h3>Chemise</h3>
+        <p>Prix 15$.</p>
+        <button onclick="buyItem('6.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('6.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="11.jpg" alt="Produit 6">
+        <h3>Jube</h3>
+        <p>Prix 5$.</p>
+        <button onclick="buyItem('11.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('11.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="13.jpg" alt="Produit 6">
+        <h3>Jube</h3>
+        <p>Prix 5$.</p>
+        <button onclick="buyItem('13.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('13.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="15.jpg" alt="Produit 6">
+        <h3>Jube</h3>
+        <p>Prix 7$.</p>
+        <button onclick="buyItem('15.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('15.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="16.jpg" alt="Produit 6">
+        <h3>Jube</h3>
+        <p>Prix 10$.</p>
+        <button onclick="buyItem('16.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('16.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="19.jpg" alt="Produit 6">
+        <h3>Jube</h3>
+        <p>Prix 12$.</p>
+        <button onclick="buyItem('19.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('19.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="23.jpg" alt="Produit 6">
+        <h3>Jube</h3>
+        <p>Prix 5$.</p>
+        <button onclick="buyItem('23.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('23.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="25.jpg" alt="Produit ">
+        <h3>Jube</h3>
+        <p>Prix 7$.</p>
+        <button onclick="buyItem('25.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('25.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="51IkFrngAnL._SL500_._AC_SL500_.jpg" alt="Produit ">
+        <h3>Arduino mega</h3>
+        <p>Prix 30$.</p>
+        <button onclick="buyItem('51IkFrngAnL._SL500_._AC_SL500_.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('51IkFrngAnL._SL500_._AC_SL500_.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="51ruNRQZbvL._AC_UF1000,1000_QL80_.jpg" alt="Produit ">
+        <h3>Relais de 4</h3>
+        <p>Prix 8$.</p>
+        <button onclick="buyItem('51ruNRQZbvL._AC_UF1000,1000_QL80_.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('51ruNRQZbvL._AC_UF1000,1000_QL80_.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="71D9q3pqTeL._AC_UF1000,1000_QL80_.jpg" alt="Produit ">
+        <h3>Relais de 4</h3>
+        <p>Prix 4$.</p>
+        <button onclick="buyItem('71D9q3pqTeL._AC_UF1000,1000_QL80_.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('71D9q3pqTeL._AC_UF1000,1000_QL80_.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="95cf4a6a732d42039e53afdf41adf324.jpg" alt="Produit ">
+        <h3>Toge</h3>
+        <p>Prix 15$.</p>
+        <button onclick="buyItem('95cf4a6a732d42039e53afdf41adf324.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('95cf4a6a732d42039e53afdf41adf324.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="1011-1.png" alt="Produit ">
+        <h3>Kit arduino uno</h3>
+        <p>Prix 90$.</p>
+        <button onclick="buyItem('1011-1.png', 80)">Acheter</button>
+        <button onclick="addToCart('1011-1.png', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="1667646041952.jpg" alt="Produit ">
+        <h3>Thermostat</h3>
+        <p>Prix 10$.</p>
+        <button onclick="buyItem('1667646041952.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('1667646041952.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="1668575301568.png" alt="Produit ">
+        <h3>Imprimmate 3D</h3>
+        <p>Prix 400$.</p>
+        <button onclick="buyItem('1668575301568.png', 80)">Acheter</button>
+        <button onclick="addToCart('1668575301568.png', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="1675023953713.png" alt="Produit ">
+        <h3>Filmat</h3>
+        <p>Prix 5$.</p>
+        <button onclick="buyItem('1675023953713.png', 80)">Acheter</button>
+        <button onclick="addToCart('1675023953713.png', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="big_with_watermark_toyota-tundra-zambia-livingstone-21417.jpeg" alt="Produit ">
+        <h3>voitur tundra</h3>
+        <p>Prix 20000$.</p>
+        <button onclick="buyItem('big_with_watermark_toyota-tundra-zambia-livingstone-21417.jpeg', 80)">Acheter</button>
+        <button onclick="addToCart('big_with_watermark_toyota-tundra-zambia-livingstone-21417.jpeg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="brother-dcp-l2640dw.jpg" alt="Produit ">
+        <h3>Imprimmate</h3>
+        <p>Prix 200$.</p>
+        <button onclick="buyItem('brother-dcp-l2640dw.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('brother-dcp-l2640dw.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="c06976771_500x367.jpg" alt="Produit ">
+        <h3>Imprimmate hp</h3>
+        <p>Prix 250$.</p>
+        <button onclick="buyItem('c06976771_500x367.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('c06976771_500x367.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="fdit-souris-d-ordinateur-portable-souris-filaire-p.jpg" alt="Produit ">
+        <h3>Souris</h3>
+        <p>Prix 8$.</p>
+        <button onclick="buyItem('fdit-souris-d-ordinateur-portable-souris-filaire-p.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('fdit-souris-d-ordinateur-portable-souris-filaire-p.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="électronique">
+        <img src="hc06-6dc54.jpg.webp" alt="Produit ">
+        <h3>Module bluetooth</h3>
+        <p>Prix 3$.</p>
+        <button onclick="buyItem('hc06-6dc54.jpg.webp', 80)">Acheter</button>
+        <button onclick="addToCart('hc06-6dc54.jpg.webp', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="autres">
+        <img src="IMG-20241118-WA0019.jpg" alt="Produit ">
+        <h3>Chaussure</h3>
+        <p>Prix 30$.</p>
+        <button onclick="buyItem('IMG-20241118-WA0019.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('IMG-20241118-WA0019.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="vêtements">
+        <img src="IMG-20250107-WA0005.jpg" alt="Produit ">
+        <h3>Chemise</h3>
+        <p>Prix 10$.</p>
+        <button onclick="buyItem('IMG-20250107-WA0005.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('IMG-20250107-WA0005.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="LankeleisiRV800Plus_VeloElectriquedeMontagne_48Volts_20Ah_750Watts_Orange00_700x700.jpg" alt="Produit ">
+        <h3>Velo </h3>
+        <p>Prix 80$.</p>
+        <button onclick="buyItem('LankeleisiRV800Plus_VeloElectriquedeMontagne_48Volts_20Ah_750Watts_Orange00_700x700.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('LankeleisiRV800Plus_VeloElectriquedeMontagne_48Volts_20Ah_750Watts_Orange00_700x700.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="LD0006056247.jpg" alt="Produit ">
+        <h3>Clavier</h3>
+        <p>Prix 15$.</p>
+        <button onclick="buyItem('LD0006056247.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('LD0006056247.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="m7200.jpg" alt="Produit ">
+        <h3>Modem standar sans fil</h3>
+        <p>Prix 90$.</p>
+        <button onclick="buyItem('m7200.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('m7200.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="informatique">
+        <img src="noir-routeur-acces-wi-fi-gratuit.jpg" alt="Produit ">
+        <h3>routeur-acces-wi-fi</h3>
+        <p>Prix 130$.</p>
+        <button onclick="buyItem('noir-routeur-acces-wi-fi-gratuit.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('noir-routeur-acces-wi-fi-gratuit.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="un-toyota-tundra-pour-survivre-apocalypse-diapo.jpg" alt="Produit ">
+        <h3> voitur toyota-tundra-pour-survivre-apocalypse-diapo</h3>
+        <p>Prix 25000$.</p>
+        <button onclick="buyItem('un-toyota-tundra-pour-survivre-apocalypse-diapo.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('un-toyota-tundra-pour-survivre-apocalypse-diapo.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="TVS-Apache-RR-310-rendered-Grey.jpg" alt="Produit ">
+        <h3>Moto TVS-Apache-RR-310-rendered-Grey</h3>
+        <p>Prix 1000$.</p>
+        <button onclick="buyItem('TVS-Apache-RR-310-rendered-Grey.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('TVS-Apache-RR-310-rendered-Grey.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="tvs-apache-rr-xconect-comprar.jpg" alt="Produit ">
+        <h3>Moto tvs-apache-rr-xconect-comprar</h3>
+        <p>Prix 1200$.</p>
+        <button onclick="buyItem('tvs-apache-rr-xconect-comprar.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('tvs-apache-rr-xconect-comprar.jpg', 80)">Ajouter au panier</button>
+    </div>
+    <div class="product" data-category="Véhicule">
+        <img src="Veelc-R48-Titanium-NDS_1080x.jpg" alt="Produit ">
+        <h3>velo électrique Veelc-R48-Titanium-NDS_1080x</h3>
+        <p>Prix 130$.</p>
+        <button onclick="buyItem('Veelc-R48-Titanium-NDS_1080x.jpg', 80)">Acheter</button>
+        <button onclick="addToCart('Veelc-R48-Titanium-NDS_1080x.jpg', 80)">Ajouter au panier</button>
+    </div>
+
+    <!-- Ajoutez plus de produits ici -->
+</div>
+
+<footer>
+    <h1>K Boutique</h1>
+    <p>Situé à Kamina, nous offrons une large gamme de produits allant des vêtements à l'électronique.</p>
+    <p>Contactez-nous : info@kboutique.com | Téléphone : +243 995 527 709</p>
+    <p>Suivez-nous sur nos réseaux sociaux!</p>
+</footer>
+
+<script>
+    let cartCount = 0;
+    let advertisementIndex = 0;
+    const advertisements = ["K-BOUTIQUE", "KABULO NYANGUE JUSTIN", "BAC 2 INFO UNIKAM", "Dev DJASTIL LE BLACK"];
+    const ads = [' img src="71Z0w0OnxFL._AC_UY1000_.jpg', 'ad2.jpg', 'ad3.jpg']; // Ajoutez vos images de publicité ici
+
+    function changeAdvertisement() {
+        currentAdIndex = (currentAdIndex + 1) % ads.length;
+        document.getElementById('ad-image').src = ads[currentAdIndex];
+    }
+
+    setInterval(changeAdvertisement, 2000); // Change toutes les 2 secondes
+
+
+
+    function addToCart(itemName, itemPrice) {
+        cartCount++;
+        document.getElementById('cart-count').innerText = cartCount;
+        alert(itemName + ' a été ajouté au panier.');
+    }
+
+    function buyItem(itemName, itemPrice) {
+        const quantity = prompt('Combien de ' + itemName + ' voulez-vous acheter?');
+        if (quantity > 0) {
+            const userInfo = {};
+            userInfo.name = prompt('Veuillez entrer votre nom:');
+            userInfo.gender = prompt('Veuillez entrer votre genre:');
+            userInfo.address = prompt('Veuillez entrer votre adresse:');
+            userInfo.email = prompt('Veuillez entrer votre email:');
+            userInfo.phone = prompt('Veuillez entrer votre numéro de téléphone:');
+            userInfo.paymentMethod = prompt('Mode de paiement (Carte bancaire, Visa, M-Pesa, Airtel Money, Orange Money):');
+            alert('Vous avez acheté ' + quantity + ' ' + itemName + ' pour ' + (itemPrice * quantity) + '$');
+            console.log(userInfo);
+        } else {
+            alert('Quantité invalide!');
+        }
+    }
+
+    function sendComment(event) {
+        event.preventDefault();
+        const comment = event.target.querySelector('textarea').value;
+        alert('Commentaire envoyé : ' + comment);
+        event.target.reset();
+    }
+
+    function createAccount(event) {
+        event.preventDefault();
+        const username = event.target.querySelector('input[type="text"]').value;
+        const password = event.target.querySelector('input[type="password"]').value;
+        alert('Compte créé pour ' + username);
+        event.target.reset();
+    }
+
+    function searchItem() {
+        const query = document.getElementById('search-input').value.toLowerCase();
+        const products = document.querySelectorAll('.product');
+        
+        products.forEach(product => {
+            const productName = product.querySelector('h3').innerText.toLowerCase();
+            if (productName.includes(query)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+
+    function filterCategory(category) {
+        const products = document.querySelectorAll('.product');
+        
+        products.forEach(product => {
+            if (product.getAttribute('data-category') === category) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+
+    function changeAdvertisement() {
+        advertisementIndex = (advertisementIndex + 1) % advertisements.length;
+        document.getElementById('advertisement').innerText = advertisements[advertisementIndex];
+    }
+
+    setInterval(changeAdvertisement, 3000);
+</script>
+
+</body>
+</html>

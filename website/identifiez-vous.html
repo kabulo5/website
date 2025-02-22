@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d1e938;
+            color: white;
+            padding: 10px 20px;
+        }
+        header img {
+            height: 95px;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .search-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+        }
+        .search-container button {
+            padding: 10px 15px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+        }
+        .product img {
+            width: 100%;
+        }
+        .cart-count {
+            position: relative;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Logo BK"><h1>K-BOUTIQUE</h1>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="nos contact.html">nos contact</a>
+        <a href="identifiez-vous.html" class="fa-solid fa-user"></a></li>
+        <a href="#cart" class="cart">🛒 <span class="cart-count" id="cart-count">0</span></a>
+    </nav>
+</header>
+
+<center>
+<div id="register">
+    <h2>Créer un compte</h2>
+    <form id="register-form" onsubmit="createAccount(event)">
+    </div>
+    <div id="frm_field_17_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_full">
+    <label for="field_29yf4d2" id="field_29yf4d2_label" class="frm_primary_label">E-mail
+    <span class="frm_required" aria-hidden="true"> </span>
+    </label>
+    <input type="email" id="field_29yf4d2" name="item_meta[17]" value=""  data-reqmsg="E-mail cannot be blank." aria-required="true" data-invmsg="Please enter a valid email address" aria-invalid="false"  />
+    <br><br>
+    <label for ="field_29yf4d2" id="field_29yf4d2_label" class="frm_primary_label">Mot de passe
+        <input type="password" placeholder="Mot de passe" required><br><br>
+        <button type="submit">S'INSCRIRE</button>
+    </form></center>
+</div>
+
+<script>
+    let cartCount = 0;
+
+    function addToCart(itemName, itemPrice) {
+        cartCount++;
+        document.getElementById('cart-count').innerText = cartCount;
+        alert(itemName + ' a été ajouté au panier.');
+    }
+
+    function buyItem(itemName, itemPrice) {
+        alert('Vous avez acheté ' + itemName + ' pour ' + itemPrice + '$.');
+    }
+
+    function sendComment(event) {
+        event.preventDefault();
+        const comment = event.target.querySelector('textarea').value;
+        alert('Commentaire envoyé : ' + comment);
+        event.target.reset();
+    }
+
+    function createAccount(event) {
+        event.preventDefault();
+        const username = event.target.querySelector('input[type="text"]').value;
+        const password = event.target.querySelector('input[type="password"]').value;
+        alert('Compte créé pour ' + useremail);
+        event.target.reset();
+    }
+
+    function searchItem() {
+        const query = document.getElementById('search-input').value.toLowerCase();
+        const register = document.querySelectorAll('.product');
+        
+        register.forEach(product => {
+            const productName = register.querySelector('h3').innerText.toLowerCase();
+            if (productName.includes(query)) {
+                register.style.display = 'block';
+            } else {
+                register.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
